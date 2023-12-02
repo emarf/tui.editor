@@ -97,16 +97,7 @@ jobs:
           npm run build toastmark
           npm run build editor
           npm run build react
-          npm run build vue
-      - name: Npm Publish(react)
-        working-directory: ./apps/react-editor
-        run: |
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-      - name: Npm Publish(vue)
-        working-directory: ./apps/vue-editor
-        run: |
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.TUI_EDITOR }}
