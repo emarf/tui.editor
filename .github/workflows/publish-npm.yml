@@ -101,11 +101,11 @@ jobs:
         uses: PostHog/check-package-version@v2
         with:
           path: ./apps/editor/
-      - name: Use Node.js 15.x
-        uses: actions/setup-node@v2.5.1
+      - uses: actions/checkout@v1
+      - name: install node v16.13.1
+        uses: actions/setup-node@v1
         with:
-          node-version: '15.x'
-          registry-url: https://registry.npmjs.org/
+          node-version: 16.13.1
       - name: Install
         run: |
           npm ci
